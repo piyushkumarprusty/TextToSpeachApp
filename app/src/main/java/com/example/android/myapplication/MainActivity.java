@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         e1 = findViewById(R.id.e1);
-        b1= findViewById(R.id.b1);
-        
+        b1 = findViewById(R.id.b1);
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,16 +30,22 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             }
         });
     }
-public void onInit(int status){
-if (status == TextToSpeech.SUCCESS){
-    int result =tts.setLanguage(Locale.US);
-    if(result==TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED){
-        Toast.makeText(getApplicationContext(),"Language Not Supported" , Toast.LENGTH_SHORT).show();
+
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            int result = tts.setLanguage(Locale.US);
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Toast.makeText(getApplicationContext(), "Language Not Supported", Toast.LENGTH_SHORT).show();
+            }else {
+                b1.setEnabled(true);
+                speakOn();
+            }
+        }
     }
-}
-}
 
 
     private void speakOn() {
+
+
     }
 }
