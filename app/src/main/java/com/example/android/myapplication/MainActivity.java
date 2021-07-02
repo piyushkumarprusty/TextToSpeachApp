@@ -3,11 +3,16 @@ package com.example.android.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Locale;
+
+public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
+    private TextToSpeech tts;
     EditText e1;
     Button b1;
 
@@ -25,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+public void onInit(int status){
+
+}
+
 
     private void speakOn() {
     }
