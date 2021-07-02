@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         setContentView(R.layout.activity_main);
         e1 = findViewById(R.id.e1);
         b1 = findViewById(R.id.b1);
-
+            tts  = new TextToSpeech(this , this);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
