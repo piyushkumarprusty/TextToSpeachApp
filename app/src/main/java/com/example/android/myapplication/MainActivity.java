@@ -30,11 +30,13 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             }
         });
     }
+// Validation and checking
 
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
             int result = tts.setLanguage(Locale.US);
-            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED)
+            {
                 Toast.makeText(getApplicationContext(), "Language Not Supported", Toast.LENGTH_SHORT).show();
             }else {
                 b1.setEnabled(true);
@@ -43,9 +45,11 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
     }
 
+    // To speak
 
     private void speakOn() {
-
-
+        String txt = e1.getText().toString();
+        tts.speak(txt,TextToSpeech.QUEUE_FLUSH,null);  // here it will analyse than speak using queueFlush
+        tts.setSpeechRate(1.0f);
     }
 }
